@@ -1,0 +1,162 @@
+---
+title: 使用 Spring Boot 介接綠界 ECPay 金流
+date: 2024-01-15 11:28:00+0000
+tags:
+    - spring boot
+    - java
+categories:
+    - spring boot
+    - java	
+weight: 1
+---
+
+ 
+>  [綠界金流 Java SDK 使用者文件](https://github.com/ECPay/ECPayAIO_Java/blob/master/Doc/Java_ecpay_PaymentSDK.pdf)
+
+1. 到 [Spring Initializr - Spring Boot](https://start.spring.io/) 建立 Spring Boot 專案
+    
+![https://ithelp.ithome.com.tw/upload/images/20230407/20151559RgNhS72oOG.png](https://ithelp.ithome.com.tw/upload/images/20230407/20151559RgNhS72oOG.png)
+
+2. 下載 [SDK](https://github.com/ECPay/ECPayAIO_Java.git)
+
+![https://ithelp.ithome.com.tw/upload/images/20230407/20151559Wr3d5Gmpnl.png](https://ithelp.ithome.com.tw/upload/images/20230407/20151559Wr3d5Gmpnl.png)
+
+
+3. 將 SDK 加入專案，但是因為缺少 Apache Log4j Core 和 Java Servlet API 這兩個 dependencies 所以 AllInOne.java 出現錯誤
+
+![https://ithelp.ithome.com.tw/upload/images/20230407/20151559GtbniU2c7F.png](https://ithelp.ithome.com.tw/upload/images/20230407/20151559GtbniU2c7F.png)
+
+![https://ithelp.ithome.com.tw/upload/images/20230407/20151559hrKLjZY1Tu.png](https://ithelp.ithome.com.tw/upload/images/20230407/20151559hrKLjZY1Tu.png)
+
+4. 從 [Maven Repository](https://mvnrepository.com/) 加入 dependencies 到 pom.xml 中
+
+![https://ithelp.ithome.com.tw/upload/images/20230407/201515599UBGJBfvJg.png](https://ithelp.ithome.com.tw/upload/images/20230407/201515599UBGJBfvJg.png)
+
+5. 將 SDK 中的 payment_conf.xml 加入至專案路徑 src\main\resources 底下，基本上無須修改內容，詳細用法請參考文件
+
+![https://ithelp.ithome.com.tw/upload/images/20230407/20151559w1hj3d0oiH.png](https://ithelp.ithome.com.tw/upload/images/20230407/20151559w1hj3d0oiH.png)
+
+6. 建立 controller 及 service 層，訂單內容請自行修改，可參考[範例](https://github.com/ECPay/ECPayAIO_Java/blob/master/example/ExampleAllInOne.java)
+
+```java
+package com.example.ECPayDemo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.ECPayDemo.service.OrderService;
+
+@RestController
+public class OrderController {
+	
+	@Autowired
+	OrderService orderService;
+
+	@PostMapping("/ecpayCheckout")
+	public String ecpayCheckout() {
+		String aioCheckOutALLForm = orderService.ecpayCheckout();
+		
+		return aioCheckOutALLForm;
+	}
+}
+```
+
+```java
+package com.example.ECPayDemo.service;
+
+import org.springframework.stereotype.Service;
+
+import ecpay.payment.integration.AllInOne;
+import ecpay.payment.integration.domain.AioCheckOutALL;
+
+@Service
+public class OrderService {
+
+	public String ecpayCheckout() {
+		
+		AllInOne all = new AllInOne("");
+		
+		AioCheckOutALL obj = new AioCheckOutALL();
+		obj.setMerchantTradeNo("testCompany0004");
+		obj.setMerchantTradeDate("2017/01/01 08:05:23");
+		obj.setTotalAmount("50");
+		obj.setTradeDesc("test Description");
+		obj.setItemName("TestItem");
+		obj.setReturnURL("http://211.23.128.214:5000"); // 交易結果回傳網址，只接受 https 開頭的網站，可以使用 ngrok
+		obj.setNeedExtraPaidInfo("N");
+		obj.setClientBackURL("http://192.168.1.37:8080/"); // 商店轉跳網址 (Optional)
+		String form = all.aioCheckOut(obj, null);
+		
+		return form;
+	}
+}
+```
+
+7. 使用 API Tester 呼叫 http://localhost:8080/ecpayCheckout ，**HTTP METHOD 要記得用 POST !**，呼叫成功(http 狀態碼為 200)後，應該會出現一段內容有表單的 html
+
+8. 將上述的 html 貼到空白的記事本並將副檔名由 .txt 修改為 .html，打開它後你會看到以下畫面，造成交易失敗的原因是訂單編號重覆了，修改廠商交易編號 MerchantTradeNo 即可，細節請參考[FAQ知識庫](https://www.ecpay.com.tw/CascadeFAQ/CascadeFAQ_Qa?nID=1454&_gl=1*crf39v*_gcl_aw*R0NMLjE2Nzk2NzIzNjEuQ2owS0NRandsUFdnQmhESEFSSXNBSDJ4ZE5mTUpZY1AzMEZhelpUMWtZYjlsNWhHY0dOdWR6NTdjX2RIZkg4LWxOZHJ0NFFsMm9peFNRb2FBcTRWRUFMd193Y0I.)
+
+![https://ithelp.ithome.com.tw/upload/images/20230407/20151559t3FVF7mguA.png](https://ithelp.ithome.com.tw/upload/images/20230407/20151559t3FVF7mguA.png)
+
+9. 為了測試方便，所以使用 UUID 隨機產生 20 碼的亂數
+
+```java
+package com.example.ECPayDemo.service;
+
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
+import ecpay.payment.integration.AllInOne;
+import ecpay.payment.integration.domain.AioCheckOutALL;
+
+@Service
+public class OrderService {
+
+	public String ecpayCheckout() {
+		
+		String uuId = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 20);
+		
+		AllInOne all = new AllInOne("");
+		
+		AioCheckOutALL obj = new AioCheckOutALL();
+		obj.setMerchantTradeNo(uuId);
+		obj.setMerchantTradeDate("2017/01/01 08:05:23");
+		obj.setTotalAmount("50");
+		obj.setTradeDesc("test Description");
+		obj.setItemName("TestItem");
+		obj.setReturnURL("http://211.23.128.214:5000");
+		obj.setNeedExtraPaidInfo("N");
+		String form = all.aioCheckOut(obj, null);
+		
+		return form;
+	}
+}
+```
+
+10. 若是成功會出現以下畫面，在下方輸入
+* 手機號碼
+* 一般信用卡測試卡號 : 4311-9522-2222-2222
+* 安全碼 : 222 
+* 信用卡測試有效月/年：輸入的 MM/YYYY 值請大於現在當下時間的月年，例如在 2016/04/20 當天作測試，請設定 05/2016(含)之後的有效月年，否則回應刷卡失敗。
+細節請參考[準備事項 / 測試介接資訊](https://developers.ecpay.com.tw/?p=2856)
+
+![https://ithelp.ithome.com.tw/upload/images/20230408/201515591C3iFCoovX.png](https://ithelp.ithome.com.tw/upload/images/20230408/201515591C3iFCoovX.png)
+
+11. 輸入完成並手機驗證後
+
+![https://ithelp.ithome.com.tw/upload/images/20230408/201515592iRLfwhH0O.png](https://ithelp.ithome.com.tw/upload/images/20230408/201515592iRLfwhH0O.png)
+
+上述內容為小弟的學習心得，如有缺漏還請不吝指教!
+
+[範例程式碼](https://github.com/Tun-ChungCheng/ecpay_demo.git)
+
+補充最近採到坑:編譯器忘了把 EcpayPayment.xml 檔加進 target 目錄下
+
+![https://ithelp.ithome.com.tw/upload/images/20230502/20151559kikDDvhHtW.png](https://ithelp.ithome.com.tw/upload/images/20230502/20151559kikDDvhHtW.png)
+![https://ithelp.ithome.com.tw/upload/images/20230502/201515596njwNPoZ6E.png](https://ithelp.ithome.com.tw/upload/images/20230502/201515596njwNPoZ6E.png)
+
+Solution:把 EcpayPayment.xml 檔移到 resources 底下，並修改 src/main/java/ecpay/payment/integration/ecpayOperator/PaymentVerifyBase.java 的 confPath 屬性為 "/EcpayPayment.xml"
+
+![https://ithelp.ithome.com.tw/upload/images/20230503/20151559TD1p5ZvYAt.png](https://ithelp.ithome.com.tw/upload/images/20230503/20151559TD1p5ZvYAt.png)
