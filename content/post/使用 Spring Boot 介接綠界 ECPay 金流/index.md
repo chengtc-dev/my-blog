@@ -21,21 +21,29 @@ weight: 1
 ![https://ithelp.ithome.com.tw/upload/images/20230407/20151559Wr3d5Gmpnl.png](https://ithelp.ithome.com.tw/upload/images/20230407/20151559Wr3d5Gmpnl.png)
 
 
-3. 將 SDK 加入專案，但是因為缺少 Apache Log4j Core 和 Java Servlet API 這兩個 dependencies 所以 AllInOne.java 出現錯誤
+3. 將 SDK 加入專案，但是因為缺少 Apache Log4j Core 和 Java Servlet API 這兩個 dependencies 所以 AllInOne.java 出現錯誤，因此從 [Maven Repository](https://mvnrepository.com/) 加入 dependencies 到 pom.xml 中
 
-![https://ithelp.ithome.com.tw/upload/images/20230407/20151559GtbniU2c7F.png](https://ithelp.ithome.com.tw/upload/images/20230407/20151559GtbniU2c7F.png)
+```pom.xml
+<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.0.1</version>
+    <scope>provided</scope>
+</dependency>
+		
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.17.1</version>
+</dependency>
+```
 
-![https://ithelp.ithome.com.tw/upload/images/20230407/20151559hrKLjZY1Tu.png](https://ithelp.ithome.com.tw/upload/images/20230407/20151559hrKLjZY1Tu.png)
+4. 將 SDK 中的 payment_conf.xml 加入至專案路徑 src\main\resources 底下，基本上無須修改內容，詳細用法請參考文件
 
-4. 從 [Maven Repository](https://mvnrepository.com/) 加入 dependencies 到 pom.xml 中
 
-![https://ithelp.ithome.com.tw/upload/images/20230407/201515599UBGJBfvJg.png](https://ithelp.ithome.com.tw/upload/images/20230407/201515599UBGJBfvJg.png)
-
-5. 將 SDK 中的 payment_conf.xml 加入至專案路徑 src\main\resources 底下，基本上無須修改內容，詳細用法請參考文件
-
-![https://ithelp.ithome.com.tw/upload/images/20230407/20151559w1hj3d0oiH.png](https://ithelp.ithome.com.tw/upload/images/20230407/20151559w1hj3d0oiH.png)
-
-6. 建立 controller 及 service 層，訂單內容請自行修改，可參考[範例](https://github.com/ECPay/ECPayAIO_Java/blob/master/example/ExampleAllInOne.java)
+5. 建立 controller 及 service 層，訂單內容請自行修改，可參考[範例](https://github.com/ECPay/ECPayAIO_Java/blob/master/example/ExampleAllInOne.java)
 
 ```java
 package com.example.ECPayDemo.controller;
@@ -61,6 +69,8 @@ public class OrderController {
 }
 ```
 
+<hr />
+
 ```java
 package com.example.ECPayDemo.service;
 
@@ -82,9 +92,11 @@ public class OrderService {
 		obj.setTotalAmount("50");
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
-		obj.setReturnURL("http://211.23.128.214:5000"); // 交易結果回傳網址，只接受 https 開頭的網站，可以使用 ngrok
+		// 交易結果回傳網址，只接受 https 開頭的網站，可以使用 ngrok
+		obj.setReturnURL("http://211.23.128.214:5000"); 
 		obj.setNeedExtraPaidInfo("N");
-		obj.setClientBackURL("http://192.168.1.37:8080/"); // 商店轉跳網址 (Optional)
+		// 商店轉跳網址 (Optional)
+		obj.setClientBackURL("http://192.168.1.37:8080/"); 
 		String form = all.aioCheckOut(obj, null);
 		
 		return form;
@@ -92,13 +104,13 @@ public class OrderService {
 }
 ```
 
-7. 使用 API Tester 呼叫 http://localhost:8080/ecpayCheckout ，**HTTP METHOD 要記得用 POST !**，呼叫成功(http 狀態碼為 200)後，應該會出現一段內容有表單的 html
+6. 使用 API Tester 呼叫 http://localhost:8080/ecpayCheckout ，**HTTP METHOD 要記得用 POST !**，呼叫成功(http 狀態碼為 200)後，應該會出現一段內容有表單的 html
 
-8. 將上述的 html 貼到空白的記事本並將副檔名由 .txt 修改為 .html，打開它後你會看到以下畫面，造成交易失敗的原因是訂單編號重覆了，修改廠商交易編號 MerchantTradeNo 即可，細節請參考[FAQ知識庫](https://www.ecpay.com.tw/CascadeFAQ/CascadeFAQ_Qa?nID=1454&_gl=1*crf39v*_gcl_aw*R0NMLjE2Nzk2NzIzNjEuQ2owS0NRandsUFdnQmhESEFSSXNBSDJ4ZE5mTUpZY1AzMEZhelpUMWtZYjlsNWhHY0dOdWR6NTdjX2RIZkg4LWxOZHJ0NFFsMm9peFNRb2FBcTRWRUFMd193Y0I.)
+7. 將上述的 html 貼到空白的記事本並將副檔名由 .txt 修改為 .html，打開它後你會看到以下畫面，造成交易失敗的原因是訂單編號重覆了，修改廠商交易編號 MerchantTradeNo 即可，細節請參考[FAQ知識庫](https://www.ecpay.com.tw/CascadeFAQ/CascadeFAQ_Qa?nID=1454&_gl=1*crf39v*_gcl_aw*R0NMLjE2Nzk2NzIzNjEuQ2owS0NRandsUFdnQmhESEFSSXNBSDJ4ZE5mTUpZY1AzMEZhelpUMWtZYjlsNWhHY0dOdWR6NTdjX2RIZkg4LWxOZHJ0NFFsMm9peFNRb2FBcTRWRUFMd193Y0I.)
 
 ![https://ithelp.ithome.com.tw/upload/images/20230407/20151559t3FVF7mguA.png](https://ithelp.ithome.com.tw/upload/images/20230407/20151559t3FVF7mguA.png)
 
-9. 為了測試方便，所以使用 UUID 隨機產生 20 碼的亂數
+8. 為了測試方便，所以使用 UUID 隨機產生 20 碼的亂數
 
 ```java
 package com.example.ECPayDemo.service;
@@ -134,7 +146,7 @@ public class OrderService {
 }
 ```
 
-10. 若是成功會出現以下畫面，在下方輸入
+9. 若是成功會出現以下畫面，在下方輸入
 * 手機號碼
 * 一般信用卡測試卡號 : 4311-9522-2222-2222
 * 安全碼 : 222 
@@ -143,7 +155,7 @@ public class OrderService {
 
 ![https://ithelp.ithome.com.tw/upload/images/20230408/201515591C3iFCoovX.png](https://ithelp.ithome.com.tw/upload/images/20230408/201515591C3iFCoovX.png)
 
-11. 輸入完成並手機驗證後
+10. 輸入完成並手機驗證後
 
 ![https://ithelp.ithome.com.tw/upload/images/20230408/201515592iRLfwhH0O.png](https://ithelp.ithome.com.tw/upload/images/20230408/201515592iRLfwhH0O.png)
 
@@ -151,10 +163,11 @@ public class OrderService {
 
 [範例程式碼](https://github.com/Tun-ChungCheng/ecpay_demo.git)
 
+<hr />
+
 補充最近採到坑:編譯器忘了把 EcpayPayment.xml 檔加進 target 目錄下
 
 ![https://ithelp.ithome.com.tw/upload/images/20230502/20151559kikDDvhHtW.png](https://ithelp.ithome.com.tw/upload/images/20230502/20151559kikDDvhHtW.png)
-![https://ithelp.ithome.com.tw/upload/images/20230502/201515596njwNPoZ6E.png](https://ithelp.ithome.com.tw/upload/images/20230502/201515596njwNPoZ6E.png)
 
 Solution:把 EcpayPayment.xml 檔移到 resources 底下，並修改 src/main/java/ecpay/payment/integration/ecpayOperator/PaymentVerifyBase.java 的 confPath 屬性為 "/EcpayPayment.xml"
 
