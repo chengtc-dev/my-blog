@@ -9,13 +9,13 @@ tags:
 weight: 4
 ---
 
-# JPA :
+## JPA
 JPA 是 Java Persistence API 的縮寫，是一種 Java EE 的標準規範，用於透過ORM（物件關聯映射）方式來管理 Java 應用程式中的資料庫。JPA 提供了對關聯資料庫的標準化存取，並且能夠將 Java 物件映射到資料表。
 
-# Querydsl :
+## Querydsl
 Querydsl 是一種用於構建 type-safe 的動態 SQL 查詢框架。它提供了一種特殊的 DSL（Domain Specific Language），允許以 type-safe 的方式構建動態查詢，而不是依賴於字串。
 
-
+## 範例
 1. 新增依賴（5.0.0版本之後，無需配置 Annotation Processing Tool）可以通過 Maven 或 Gradle 進行，以下是 Maven 的例子 :
 
 ```pom.xml
