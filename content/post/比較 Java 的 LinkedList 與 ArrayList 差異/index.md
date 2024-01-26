@@ -1,6 +1,6 @@
 ---
 title: 比較 Java 的 LinkedList 與 ArrayList 差異
-date: 2024-01-26 16:10:00+0800
+date: 2024-01-26
 categories:
     - data structure
 tags:
