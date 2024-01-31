@@ -17,7 +17,7 @@ disqusShortname = "hugo-theme-stack"
 
 
 [sitemap]
-  changeFreq = ''
+  changeFreq = 'weekly'
   filename = 'sitemap.xml'
-  priority = -1
+  priority = 0.8
 
