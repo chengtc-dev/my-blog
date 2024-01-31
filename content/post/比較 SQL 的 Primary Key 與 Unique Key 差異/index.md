@@ -2,9 +2,9 @@
 title: 比較 SQL 的 Primary Key 與 Unique Key 差異
 date: 2024-01-26
 categories:
-    - sql
+    - SQL
 tags:
-    - sql
+    - SQL
 weight: 6
 ---
 

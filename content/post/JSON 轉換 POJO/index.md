@@ -2,9 +2,9 @@
 title: JSON 轉換 POJO
 date: 2024-01-26
 categories:
-    - java
+    - Java
 tags:
-    - java
+    - Java
 weight: 7
 ---
 

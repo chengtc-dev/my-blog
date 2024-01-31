@@ -2,10 +2,10 @@
 title: 使用 JPA 和 Querydsl 建立動態 SQL
 date: 2024-01-26
 categories:
-    - jpa
+    - JPA
 tags:
-    - jpa
-    - java
+    - JPA
+    - Java
 weight: 4
 ---
 

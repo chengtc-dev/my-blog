@@ -2,10 +2,10 @@
 title: 使用 Spring Boot 建立 XML Bean
 date: 2024-01-28
 categories:
-    - spring boot
+    - Spring Boot
 tags:
-    - spring boot
-    - java
+    - Spring Boot
+    - Java
 weight: 9
 ---
 

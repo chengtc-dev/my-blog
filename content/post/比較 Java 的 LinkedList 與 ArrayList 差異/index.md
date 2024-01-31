@@ -2,10 +2,10 @@
 title: 比較 Java 的 LinkedList 與 ArrayList 差異
 date: 2024-01-26
 categories:
-    - data structure
+    - Data Structure
 tags:
-    - data structure
-    - java
+    - Data Structure
+    - Java
 weight: 3
 ---
 

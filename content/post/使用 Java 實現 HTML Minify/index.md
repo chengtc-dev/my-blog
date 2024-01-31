@@ -2,9 +2,9 @@
 title: 使用 Java 實現 HTML Minify
 date: 2024-01-26
 categories:
-    - java
+    - Java
 tags:
-    - java
+    - Java
 weight: 8
 ---
 

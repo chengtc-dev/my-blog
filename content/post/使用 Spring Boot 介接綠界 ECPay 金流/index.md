@@ -2,10 +2,10 @@
 title: 使用 Spring Boot 介接綠界 ECPay 金流
 date: 2024-01-25
 categories:
-    - spring boot
+    - Spring Boot
 tags:
-    - spring boot
-    - java
+    - Spring Boot
+    - Java
 weight: 1
 ---
 
