@@ -11,15 +11,15 @@ weight: 10
 
 ## Github Action
 
-是 GitHub 提供的一種持續集成（Continuous Integration，簡稱 CI）和持續部署（Continuous Deployment，簡稱 CD）的服務。它使開發者能夠在程式碼庫中定義和配置自動化的工作流程，這些工作流程可以在特定事件觸發時執行，例如: 推送程式碼、創建拉取請求或發布新版本。
+是 GitHub 提供的一種持續整合（Continuous Integration，簡稱 CI）和持續部署（Continuous Deployment，簡稱 CD）的服務。它使開發者能夠在程式碼庫中定義和配置自動化的工作流程，這些工作流程可以在特定事件觸發時執行，例如: 推送程式碼（Push）、創建拉取請求（Pull）或發布新版本（Release）。
 
-## 持續集成（CI）
+## 持續整合（CI）
 
-是一種開發實踐，它通過自動化測試和程式碼檢查，確保新的程式碼能夠順利地集成到現有項目中。這有助於減少錯誤，提高程式碼質量，並加速軟體交付的過程。
+是一種軟體工程流程，它通過自動化測試和程式碼檢查，確保新的程式碼能夠順利地整合到現有專案中。這有助於減少錯誤，提高程式碼質量，並加速軟體交付的過程。
 
 ## 範例
 
-1. 在你的 GitHub 存儲庫中，創建一個名為 .github/workflows 的目錄。GitHub Actions 將在這個目錄中查找工作流程配置文件。
+1. 先建立 Spring Boot 專案，並在根目錄下創建一個名為 .github/workflows 的目錄。GitHub Actions 將在這個目錄中查找工作流程配置文件。
     
 ```bash
 mkdir -p .github/workflows
