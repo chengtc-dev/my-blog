@@ -6,7 +6,6 @@ categories:
 tags:
     - Spring Boot
     - Java
-weight: 1
 ---
 
  

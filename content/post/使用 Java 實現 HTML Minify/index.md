@@ -5,7 +5,6 @@ categories:
     - Java
 tags:
     - Java
-weight: 8
 ---
 
 ## HTML Minify

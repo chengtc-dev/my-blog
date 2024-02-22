@@ -5,16 +5,28 @@ categories:
     - Java
 tags:
     - Java
-weight: 2
 ---
 
-```java
-// 在Java中使用 nv-i18n 和 icu4j 庫獲取貨幣和相關的國家和時區資訊
+```pom.xml
+<!-- https://mvnrepository.com/artifact/com.ibm.icu/icu4j -->
+<dependency>
+    <groupId>com.ibm.icu</groupId>
+    <artifactId>icu4j</artifactId>
+    <version>74.2</version>
+</dependency>
 
-// 引入相關庫
-// https://mvnrepository.com/artifact/com.ibm.icu/icu4j
+<!-- https://mvnrepository.com/artifact/com.neovisionaries/nv-i18n -->
+<dependency>
+    <groupId>com.neovisionaries</groupId>
+    <artifactId>nv-i18n</artifactId>
+    <version>1.29</version>
+</dependency>
+```
+
+<hr />
+
+```java
 import com.ibm.icu.util.TimeZone;
-// https://mvnrepository.com/artifact/com.neovisionaries/nv-i18n
 import com.neovisionaries.i18n.CountryCode;
 import com.neovisionaries.i18n.CurrencyCode;
 
@@ -44,7 +56,7 @@ public class Main {
     }
 }
 
-// 結果應為：
+// 結果：
 // JPY (Yen) is used by:
 //	JP: Japan 
 //	[Asia/Tokyo, JST, Japan]

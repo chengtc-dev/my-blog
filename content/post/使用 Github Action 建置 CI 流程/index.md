@@ -6,7 +6,6 @@ categories:
 tags:
     - Github Action
     - CI
-weight: 10
 ---
 
 ## Github Action

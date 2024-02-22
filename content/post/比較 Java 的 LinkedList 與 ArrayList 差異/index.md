@@ -6,7 +6,6 @@ categories:
 tags:
     - Data Structure
     - Java
-weight: 3
 ---
 
 ## ArrayList

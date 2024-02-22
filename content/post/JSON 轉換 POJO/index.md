@@ -5,7 +5,6 @@ categories:
     - Java
 tags:
     - Java
-weight: 7
 ---
 
 ## JSON（JavaScript Object Notation）
