@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Data Structure on Ian Cheng's blog</title><link>https://blog.ian.cheng.com/categories/data-structure/</link><description>Recent content in Data Structure on Ian Cheng's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Fri, 26 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.ian.cheng.com/categories/data-structure/index.xml" rel="self" type="application/rss+xml"/><item><title>比較 Java 的 LinkedList 與 ArrayList 差異</title><link>https://blog.ian.cheng.com/p/%E6%AF%94%E8%BC%83-java-%E7%9A%84-linkedlist-%E8%88%87-arraylist-%E5%B7%AE%E7%95%B0/</link><pubDate>Fri, 26 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.ian.cheng.com/p/%E6%AF%94%E8%BC%83-java-%E7%9A%84-linkedlist-%E8%88%87-arraylist-%E5%B7%AE%E7%95%B0/</guid><description>&lt;h2 id="arraylist">ArrayList&lt;/h2>
+&lt;ul>
+&lt;li>資料結構： ArrayList 使用動態陣列（Dynamic Array）作為資料結構，這使得對元素的隨機訪問（random access）非常高效。&lt;/li>
+&lt;li>性能： 在隨機訪問元素時，ArrayList 的性能較好，因為它允許通過索引直接訪問元素。&lt;/li>
+&lt;li>插入和刪除： 對於插入和刪除操作，特別是在中間位置進行操作，ArrayList 的性能相對較差，因為它需要移動元素。&lt;/li>
+&lt;li>空間占用： ArrayList 在創建時需要分配一定的空間，並且當空間不足時需要進行擴充操作。&lt;/li>
+&lt;/ul>
+&lt;h2 id="linkedlist">LinkedList&lt;/h2>
+&lt;ul>
+&lt;li>資料結構： LinkedList 使用雙向鏈結串列（Doubly Linked List）作為資料結構，這使得插入和刪除操作在某些情況下更有效率。&lt;/li>
+&lt;li>性能： 在循序走訪元素時，LinkedList 的性能較好，因為它知道前後相鄰元素的指標位置。&lt;/li>
+&lt;li>插入和刪除： LinkedList 對於插入和刪除操作的性能較好，特別是在中間位置進行操作，因為它只需要調整鏈結而不需要移動大量元素。&lt;/li>
+&lt;li>空間占用： LinkedList 不需要一開始分配大量的空間，它根據實際需求動態分配空間。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://blog.ian.cheng.com/p/%E6%AF%94%E8%BC%83-java-%E7%9A%84-linkedlist-%E8%88%87-arraylist-%E5%B7%AE%E7%95%B0/1.png"
+width="960"
+height="540"
+srcset="https://blog.ian.cheng.com/p/%E6%AF%94%E8%BC%83-java-%E7%9A%84-linkedlist-%E8%88%87-arraylist-%E5%B7%AE%E7%95%B0/1_hue8d308b1044e8ce34bbdf5f0cadef91b_27260_480x0_resize_box_3.png 480w, https://blog.ian.cheng.com/p/%E6%AF%94%E8%BC%83-java-%E7%9A%84-linkedlist-%E8%88%87-arraylist-%E5%B7%AE%E7%95%B0/1_hue8d308b1044e8ce34bbdf5f0cadef91b_27260_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="LinkedList vs ArrayList"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="426px"
+>&lt;/p>
+&lt;p>結論，如果需要頻繁進行隨機訪問元素，使用 ArrayList 較為適合。如果需要頻繁進行插入和刪除操作，特別是在中間位置進行操作，則 LinkedList 可能更適合。&lt;/p></description></item></channel></rss>

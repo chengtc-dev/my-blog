@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Design Pattern on Ian Cheng's blog</title><link>https://blog.ian.cheng.com/categories/design-pattern/</link><description>Recent content in Design Pattern on Ian Cheng's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 25 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.ian.cheng.com/categories/design-pattern/index.xml" rel="self" type="application/rss+xml"/><item><title>設計模式重點整理</title><link>https://blog.ian.cheng.com/p/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86/</link><pubDate>Sun, 25 Feb 2024 00:00:00 +0000</pubDate><guid>https://blog.ian.cheng.com/p/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86/</guid><description>&lt;h2 id="design-pattern-設計模式">Design Pattern 設計模式&lt;/h2>
+&lt;p>解決重複性問題的模板&lt;/p>
+&lt;hr />
+&lt;h2 id="oop-基本原則---solid">OOP 基本原則 - SOLID&lt;/h2>
+&lt;h3 id="s-single-responsibility-principle-srp-單一職責">S: Single Responsibility Principle (SRP) 單一職責&lt;/h3>
+&lt;p>一個類別只負責一件事&lt;/p>
+&lt;h3 id="o-openclose-principle-ocp-開放--封閉原則">O: Open/Close Principle (OCP) 開放 / 封閉原則&lt;/h3>
+&lt;p>開放新增功能，封閉修改其他不相關的功能&lt;/p>
+&lt;h3 id="l-liskov-substitution-principle-lsp-liskov-替換原則">L: Liskov Substitution Principle (LSP) Liskov 替換原則&lt;/h3>
+&lt;p>子類別應該要可以替換父類別，而不影響程式架構&lt;/p>
+&lt;h3 id="i-interface-segregation-principle-isp-介面隔離原則">I: Interface Segregation Principle (ISP) 介面隔離原則&lt;/h3>
+&lt;p>把不同功能從介面中分離出來&lt;/p>
+&lt;h3 id="d-dependency-inversion-principle-dip-依賴反轉原則">D: Dependency Inversion Principle (DIP) 依賴反轉原則&lt;/h3>
+&lt;p>高階模組不應該依賴低階模組，兩者都應該依賴抽象&lt;/p>
+&lt;hr />
+&lt;h2 id="singleton-單例模式">Singleton 單例模式&lt;/h2>
+&lt;p>保證一個類別只會產生一個物件，而且要提供存取該物件的統一方法&lt;/p>
+&lt;hr />
+&lt;h2 id="simple-factory-簡單工廠模式">Simple Factory 簡單工廠模式&lt;/h2>
+&lt;p>定義一個簡單工廠，傳入不同參數取得不同的類別物件&lt;/p>
+&lt;hr />
+&lt;blockquote>
+&lt;p>&lt;a class="link" href="https://www.books.com.tw/products/0010750585" target="_blank" rel="noopener"
+>7天學會設計模式：設計模式也可以這樣學&lt;/a>&lt;/p>
+&lt;/blockquote></description></item></channel></rss>

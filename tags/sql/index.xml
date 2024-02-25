@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SQL on Ian Cheng's blog</title><link>https://blog.ian.cheng.com/tags/sql/</link><description>Recent content in SQL on Ian Cheng's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Fri, 26 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.ian.cheng.com/tags/sql/index.xml" rel="self" type="application/rss+xml"/><item><title>比較 SQL 的 Primary Key 與 Unique Key 差異</title><link>https://blog.ian.cheng.com/p/%E6%AF%94%E8%BC%83-sql-%E7%9A%84-primary-key-%E8%88%87-unique-key-%E5%B7%AE%E7%95%B0/</link><pubDate>Fri, 26 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.ian.cheng.com/p/%E6%AF%94%E8%BC%83-sql-%E7%9A%84-primary-key-%E8%88%87-unique-key-%E5%B7%AE%E7%95%B0/</guid><description>&lt;h2 id="主鍵primary-key">主鍵（Primary Key）&lt;/h2>
+&lt;ul>
+&lt;li>主鍵用於唯一標識資料表中的每一行。&lt;/li>
+&lt;li>一個資料表只能有一個主鍵。&lt;/li>
+&lt;li>主鍵欄位不能包含 NULL 值。&lt;/li>
+&lt;/ul>
+&lt;h2 id="唯一鍵unique-key">唯一鍵（Unique Key）&lt;/h2>
+&lt;ul>
+&lt;li>唯一鍵用於確保資料表中某一列數值的唯一性。&lt;/li>
+&lt;li>一個資料表可以有多個唯一鍵。&lt;/li>
+&lt;li>唯一鍵可以包含 NULL 值。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://blog.ian.cheng.com/p/%E6%AF%94%E8%BC%83-sql-%E7%9A%84-primary-key-%E8%88%87-unique-key-%E5%B7%AE%E7%95%B0/1.png"
+width="960"
+height="540"
+srcset="https://blog.ian.cheng.com/p/%E6%AF%94%E8%BC%83-sql-%E7%9A%84-primary-key-%E8%88%87-unique-key-%E5%B7%AE%E7%95%B0/1_hue96ed8f3bc8bf121db3c9bb90c300947_29968_480x0_resize_box_3.png 480w, https://blog.ian.cheng.com/p/%E6%AF%94%E8%BC%83-sql-%E7%9A%84-primary-key-%E8%88%87-unique-key-%E5%B7%AE%E7%95%B0/1_hue96ed8f3bc8bf121db3c9bb90c300947_29968_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Primary Key vs Unique Key"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="426px"
+>&lt;/p></description></item></channel></rss>
