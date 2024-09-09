@@ -1,0 +1,19 @@
+baseURL = 'https://chengtc-dev.io/'
+languageCode = 'zh-tw'
+title = 'My Blog'
+theme = 'paper'
+
+[params]
+  # color style
+  color = 'light'                                                     # linen, wheat, gray, light
+
+  # header social icons
+  github = 'chengtc-dev'                                              # github.com/YOUR_GITHUB_ID
+
+  # home page profile
+  avatar = 'https://avatars.githubusercontent.com/u/91156531?v=4'     # gravatar email or image url
+  name = 'Ian Cheng'
+  bio = 'A Software Engineer, An Elden Lord'
+
+  # misc
+  monoDarkIcon = true                                                 # show monochrome dark mode icon
