@@ -4,7 +4,7 @@ date = 2024-09-24T00:43:23+08:00
 draft = false
 +++
 
-> Detailed Summary for [HTTP/1 to HTTP/2 to HTTP/3](https://www.youtube.com/watch?v=a-sBfyiXysI?autoplay=1) by [Monica](https://monica.im/)
+> Detailed Summary for [HTTP/1 to HTTP/2 to HTTP/3](https://www.youtube.com/watch?v=a-sBfyiXysI?autoplay=1)
 
 ### **HTTP 的演進：從 HTTP/1 到 HTTP/2 再到 HTTP/3**
 

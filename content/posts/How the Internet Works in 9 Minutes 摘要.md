@@ -4,7 +4,7 @@ date = 2024-09-23T01:28:35+08:00
 draft = false
 +++
 
-> Detailed Summary for [How the Internet Works in 9 Minutes](https://www.youtube.com/embed/sMHzfigUxz4?autoplay=1) by [Monica](https://monica.im/)
+> Detailed Summary for [How the Internet Works in 9 Minutes](https://www.youtube.com/embed/sMHzfigUxz4?autoplay=1)
 
 ### **網際網路的關鍵組成部分**
 
