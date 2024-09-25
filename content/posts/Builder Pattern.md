@@ -1,5 +1,5 @@
 +++
-title = 'Builder Pattern 介紹'
+title = 'Builder Pattern'
 date = 2024-09-11T00:30:35+08:00
 draft = false
 +++

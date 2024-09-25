@@ -22,7 +22,7 @@ DNS（網域名稱系統，Domain Name System）是網際網路的重要基礎�
 
 DNS 伺服器主要有三個層級：
 
-1. 根名稱伺服器（Root Nameservers）：知道所有頂級網域（TLD）伺服器的 IP 位址，例如 .com、.org、.tw。
+1. 根名稱伺服器（Root Nameservers）：知道所有頂級網域（TLD）伺服器的 IP 位址。
 2. 頂級網域（TLD）名稱伺服器：管理特定的頂級網域，如 .com 或 .org。
 3. 權威名稱伺服器（Authoritative Nameservers）：儲存特定網域的 IP 位址資訊。
 
