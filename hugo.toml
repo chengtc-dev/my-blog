@@ -1,4 +1,4 @@
-baseURL = 'https://chengtc-dev.io/my-blog'
+baseURL = 'https://chengtc-dev.io/my-blog/'
 languageCode = 'zh-tw'
 title = 'My Blog'
 theme = 'paper'
