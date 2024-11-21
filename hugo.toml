@@ -17,3 +17,4 @@ theme = 'paper'
 
   # misc
   monoDarkIcon = true                                                 # show monochrome dark mode icon
+  canonifyURLs = true

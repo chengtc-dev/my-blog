@@ -42,11 +42,11 @@ $$ LANGUAGE plpgsql;
 
 stored procedure 通常都會放在 routines 的資料夾下
 
-![](images/2024-11-21_1.32.33.png)
+![](/images/2024-11-21_1.32.33.png)
 
 右鍵點選要執行的檔案，選擇 run function，就會看到以下畫面，將值帶入後，記得要勾選左下角的 Run from console，接著按 OK
 
-![](images/2024-11-21_1.39.00.png)
+![](/images/2024-11-21_1.39.00.png)
 
 就完成啦！
 
