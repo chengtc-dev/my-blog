@@ -1,5 +1,5 @@
 +++
-title = '如何使用 datagrid debug stored procedure'
+title = 'Debug stored procedure using datagrid'
 date = 2024-11-21T01:43:35+08:00
 draft = false
 +++
@@ -7,11 +7,14 @@ draft = false
 
 ```postgresql
 CREATE TABLE products (
-                          id SERIAL PRIMARY KEY,
-                          name VARCHAR(100) NOT NULL,
-                          description TEXT,
-                          price NUMERIC(10, 2) NOT NULL,
-                          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    price NUMERIC(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE OR REPLACE FUNCTION add_product(
@@ -39,11 +42,11 @@ $$ LANGUAGE plpgsql;
 
 stored procedure 通常都會放在 routines 的資料夾下
 
-![2024-11-21_1.32.33.png](2024-11-21_1.32.33.png)
+![](/images/2024-11-21_1.32.33.png)
 
 右鍵點選要執行的檔案，選擇 run function，就會看到以下畫面，將值帶入後，記得要勾選左下角的 Run from console，接著按 OK
 
-![2024-11-21_1.39.00.png](2024-11-21_1.39.00.png)
+![](/images/2024-11-21_1.39.00.png)
 
 就完成啦！
 
